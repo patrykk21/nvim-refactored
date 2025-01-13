@@ -1,6 +1,7 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
 		config = function()
 			local cmp = require("cmp")
 
@@ -38,6 +39,8 @@ return {
 					}),
 				},
 			}
+
+			options = vim.tbl_deep_extend("force", options, require("nvchad.cmp"))
 
 			require("cmp").setup(options)
 		end,
