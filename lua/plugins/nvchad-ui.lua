@@ -1,6 +1,9 @@
 return {
 	"nvchad/ui",
-  lazy = false,
+	dependencies = {
+		"nvchad/base46",
+	},
+	lazy = false,
 	config = function()
 		require("nvchad")
 	end,

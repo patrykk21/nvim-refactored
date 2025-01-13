@@ -1,4 +1,4 @@
-function setup()
+local function setup()
 	local lspconfig = require("lspconfig")
 	local cmp_lsp = require("cmp_nvim_lsp")
 	local configs = {}
@@ -6,11 +6,11 @@ function setup()
 
 	local map = vim.keymap.set
 
-  configs.on_init = function(client, _)
-    if client.supports_method "textDocument/semanticTokens" then
-      client.server_capabilities.semanticTokensProvider = nil
-    end
-  end
+	configs.on_init = function(client, _)
+		if client.supports_method("textDocument/semanticTokens") then
+			client.server_capabilities.semanticTokensProvider = nil
+		end
+	end
 
 	local on_attach = function(client, bufnr)
 		local function opts(desc)
@@ -113,12 +113,14 @@ end
 
 return {
 	"neovim/nvim-lspconfig",
-	dependencies = { "williamboman/mason-lspconfig.nvim" },
+	dependencies = {
+		"williamboman/mason-lspconfig.nvim",
+	},
 	config = function()
 		dofile(vim.g.base46_cache .. "syntax")
 		dofile(vim.g.base46_cache .. "treesitter")
 
-    setup()
+		setup()
 		require("ufo").setup()
 	end,
 	opts = {

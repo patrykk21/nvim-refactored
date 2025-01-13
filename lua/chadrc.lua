@@ -11,10 +11,6 @@ M.base46 = {
 	transparency = true,
 }
 
-M.telescope = {
-  borderless =  true
-}
-
 M.ui = {
 	hl_override = {
 		Visual = {
